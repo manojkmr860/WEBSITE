@@ -1,16 +1,16 @@
+import constructionCharacter from "@/assets/Whisk_c6c6d189954fe7f84b74de8f306fff1ceg.png";
 import BlueprintBuddy from "@/components/characters/BlueprintBuddy";
 import StampStar from "@/components/characters/StampStar";
-import HardhatHero from "@/components/characters/HardhatHero";
 import ChecklistChampion from "@/components/characters/ChecklistChampion";
 import HouseHappy from "@/components/characters/HouseHappy";
 
 const SolutionOverview = () => {
   const stages = [
-    { name: "Planning", Character: BlueprintBuddy },
-    { name: "Permits", Character: StampStar },
-    { name: "Construction", Character: HardhatHero },
-    { name: "Quality Control", Character: ChecklistChampion },
-    { name: "Completion", Character: HouseHappy },
+    { name: "Planning", Character: BlueprintBuddy, type: "component" as const },
+    { name: "Permits", Character: StampStar, type: "component" as const },
+    { name: "Construction", image: constructionCharacter, type: "image" as const },
+    { name: "Quality Control", Character: ChecklistChampion, type: "component" as const },
+    { name: "Completion", Character: HouseHappy, type: "component" as const },
   ];
 
   return (
@@ -32,7 +32,15 @@ const SolutionOverview = () => {
               className="flex flex-col items-center gap-4 flex-shrink-0"
             >
               <div className="w-32 h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 flex items-center justify-center">
-                <stage.Character />
+                {stage.type === "image" ? (
+                  <img
+                    src={stage.image}
+                    alt={stage.name}
+                    className="w-full h-full object-contain"
+                  />
+                ) : (
+                  <stage.Character />
+                )}
               </div>
               <span className="text-sm md:text-base font-medium text-foreground">
                 {stage.name}
