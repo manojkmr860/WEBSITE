@@ -1,199 +1,81 @@
 const HouseHappy = () => (
   <svg
-    width="140"
-    height="140"
-    viewBox="0 0 140 140"
+    width="180"
+    height="200"
+    viewBox="0 0 180 200"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
   >
-    <g transform="translate(20, 15)">
-      <path
-        d="M 50 10 L 90 45 L 80 45 L 80 80 L 20 80 L 20 45 L 10 45 Z"
-        fill="#6BCF7E"
-        stroke="#4CAF50"
-        strokeWidth="3"
-        strokeLinejoin="round"
-      />
-      <rect
-        x="25"
-        y="50"
-        width="50"
-        height="30"
-        fill="#7FDB8F"
-      />
-      <rect
-        x="65"
-        y="20"
-        width="10"
-        height="15"
-        fill="#4CAF50"
-        stroke="#2E7D32"
-        strokeWidth="2"
-      />
-      <path
-        d="M 68 10 Q 70 5 72 10 L 72 20 L 68 20 Z"
-        fill="#E74C3C"
-      />
-      <path
-        d="M 70 8 Q 72 5 74 8 Q 76 5 78 8"
-        stroke="#E74C3C"
-        strokeWidth="2"
-        fill="none"
-        strokeLinecap="round"
-      />
-      <rect
-        x="32"
-        y="35"
-        width="12"
-        height="15"
-        fill="#4A90E2"
-        stroke="#0074D9"
-        strokeWidth="2"
-        rx="1"
-      />
-      <line
-        x1="38"
-        y1="35"
-        x2="38"
-        y2="50"
-        stroke="#0074D9"
-        strokeWidth="2"
-      />
-      <line
-        x1="32"
-        y1="42"
-        x2="44"
-        y2="42"
-        stroke="#0074D9"
-        strokeWidth="2"
-      />
-      <circle cx="36" cy="40" r="2" fill="#2C3E50" />
-      <circle cx="40" cy="40" r="2" fill="#2C3E50" />
-      <circle cx="36.5" cy="40.5" r="0.8" fill="#FFFFFF" />
-      <circle cx="40.5" cy="40.5" r="0.8" fill="#FFFFFF" />
-      <rect
-        x="56"
-        y="35"
-        width="12"
-        height="15"
-        fill="#4A90E2"
-        stroke="#0074D9"
-        strokeWidth="2"
-        rx="1"
-      />
-      <line
-        x1="62"
-        y1="35"
-        x2="62"
-        y2="50"
-        stroke="#0074D9"
-        strokeWidth="2"
-      />
-      <line
-        x1="56"
-        y1="42"
-        x2="68"
-        y2="42"
-        stroke="#0074D9"
-        strokeWidth="2"
-      />
-      <circle cx="60" cy="40" r="2" fill="#2C3E50" />
-      <circle cx="64" cy="40" r="2" fill="#2C3E50" />
-      <circle cx="60.5" cy="40.5" r="0.8" fill="#FFFFFF" />
-      <circle cx="64.5" cy="40.5" r="0.8" fill="#FFFFFF" />
-      <path
-        d="M 35 58 Q 50 70 65 58"
-        stroke="#8B4513"
-        strokeWidth="3"
-        fill="#8B4513"
-      />
-      <path
-        d="M 40 60 Q 50 68 60 60"
-        stroke="#2C3E50"
-        strokeWidth="2.5"
-        fill="none"
-        strokeLinecap="round"
-      />
-      <line
-        x1="12"
-        y1="55"
-        x2="-5"
-        y2="48"
-        stroke="#4CAF50"
-        strokeWidth="4"
-        strokeLinecap="round"
-      />
-      <line
-        x1="-5"
-        y1="48"
-        x2="-8"
-        y2="55"
-        stroke="#4CAF50"
-        strokeWidth="4"
-        strokeLinecap="round"
-      />
-      <path
-        d="M -12 48 L -8 52 L -8 58 L -18 58 L -18 52 Z"
-        fill="#FFD700"
-        stroke="#FFC300"
-        strokeWidth="2"
-      />
-      <circle
-        cx="-13"
-        cy="55"
-        r="2"
-        fill="#FFC300"
-      />
-      <line
-        x1="88"
-        y1="55"
-        x2="105"
-        y2="48"
-        stroke="#4CAF50"
-        strokeWidth="4"
-        strokeLinecap="round"
-      />
-      <line
-        x1="105"
-        y1="48"
-        x2="108"
-        y2="55"
-        stroke="#4CAF50"
-        strokeWidth="4"
-        strokeLinecap="round"
-      />
-      <path
-        d="M 112 48 L 108 52 L 108 58 L 118 58 L 118 52 Z"
-        fill="#FFD700"
-        stroke="#FFC300"
-        strokeWidth="2"
-      />
-      <circle
-        cx="113"
-        cy="55"
-        r="2"
-        fill="#FFC300"
-      />
-      <line
-        x1="35"
-        y1="85"
-        x2="32"
-        y2="105"
-        stroke="#4CAF50"
-        strokeWidth="4"
-        strokeLinecap="round"
-      />
-      <line
-        x1="65"
-        y1="85"
-        x2="68"
-        y2="105"
-        stroke="#4CAF50"
-        strokeWidth="4"
-        strokeLinecap="round"
-      />
-      <circle cx="32" cy="107" r="5" fill="#4CAF50" />
-      <circle cx="68" cy="107" r="5" fill="#4CAF50" />
+    <g transform="translate(40, 20)">
+      <ellipse cx="50" cy="85" rx="8" ry="4" fill="#8B7355" opacity="0.3" />
+
+      <rect x="42" y="145" width="8" height="20" fill="#6B4423" rx="2" />
+      <rect x="50" y="145" width="8" height="20" fill="#6B4423" rx="2" />
+      <ellipse cx="46" cy="165" rx="6" ry="3" fill="#4A2F1A" />
+      <ellipse cx="54" cy="165" rx="6" ry="3" fill="#4A2F1A" />
+
+      <rect x="35" y="100" width="30" height="45" fill="#4A90E2" rx="2" />
+      <rect x="37" y="105" width="3" height="35" fill="#6BB0FF" />
+      <rect x="60" y="105" width="3" height="35" fill="#6BB0FF" />
+      <circle cx="42" cy="110" r="2" fill="#FFD700" />
+      <circle cx="58" cy="110" r="2" fill="#FFD700" />
+      <rect x="40" y="120" width="20" height="8" fill="#5AA2E8" rx="1" />
+      <rect x="42" y="122" width="4" height="4" fill="#4A90E2" />
+      <rect x="48" y="122" width="4" height="4" fill="#4A90E2" />
+      <rect x="54" y="122" width="4" height="4" fill="#4A90E2" />
+
+      <rect x="38" y="98" width="24" height="6" fill="#8B6F47" rx="1" />
+      <circle cx="44" cy="101" r="2" fill="#D4AF37" />
+      <circle cx="56" cy="101" r="2" fill="#D4AF37" />
+
+      <ellipse cx="50" cy="85" rx="20" ry="18" fill="#FF9966" />
+      <ellipse cx="50" cy="82" rx="18" ry="16" fill="#FFAA88" />
+
+      <rect x="35" y="82" width="30" height="20" fill="#FF8844" rx="2" />
+      <line x1="37" y1="87" x2="63" y2="87" stroke="#CC6622" strokeWidth="1" />
+      <line x1="37" y1="92" x2="63" y2="92" stroke="#CC6622" strokeWidth="1" />
+      <line x1="37" y1="97" x2="63" y2="97" stroke="#CC6622" strokeWidth="1" />
+      <line x1="42" y1="84" x2="42" y2="100" stroke="#CC6622" strokeWidth="1" />
+      <line x1="47" y1="84" x2="47" y2="100" stroke="#CC6622" strokeWidth="1" />
+      <line x1="52" y1="84" x2="52" y2="100" stroke="#CC6622" strokeWidth="1" />
+      <line x1="57" y1="84" x2="57" y2="100" stroke="#CC6622" strokeWidth="1" />
+
+      <circle cx="55" cy="76" r="2.5" fill="#FF9999" opacity="0.6" />
+      <circle cx="45" cy="76" r="2.5" fill="#FF9999" opacity="0.6" />
+
+      <circle cx="43" cy="73" r="5" fill="#2C3E50" />
+      <circle cx="57" cy="73" r="5" fill="#2C3E50" />
+      <circle cx="44" cy="72" r="1.8" fill="#FFFFFF" />
+      <circle cx="58" cy="72" r="1.8" fill="#FFFFFF" />
+
+      <path d="M 42 79 Q 50 86 58 79" stroke="#2C3E50" strokeWidth="2.5" fill="none" strokeLinecap="round" />
+
+      <ellipse cx="50" cy="62" rx="22" ry="18" fill="#FFD700" />
+      <ellipse cx="50" cy="60" rx="20" ry="16" fill="#FFC700" />
+      <rect x="30" y="58" width="40" height="6" fill="#CC9900" rx="1" />
+      <rect x="45" y="54" width="10" height="4" fill="#FFE44D" rx="1" />
+
+      <path d="M 10 100 L 15 95 L 20 100" fill="none" stroke="#FFAA88" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
+      <line x1="15" y1="95" x2="15" y2="103" stroke="#FFAA88" strokeWidth="4" strokeLinecap="round" />
+      <ellipse cx="15" cy="105" rx="3" ry="4" fill="#FFAA88" />
+      <ellipse cx="15" cy="105" rx="2.5" ry="3.5" fill="#FF9966" />
+
+      <rect x="10" y="82" width="14" height="18" fill="#FFD700" rx="2" />
+      <circle cx="17" cy="91" r="6" fill="#D4AF37" />
+      <rect x="15" y="88" width="4" height="6" fill="#C4A737" rx="1" />
+      <circle cx="17" cy="94" r="1.5" fill="#AA8F27" />
+
+      <path d="M 14 79 Q 17 76 20 79" fill="#FFD700" stroke="#D4AF37" strokeWidth="1.5" />
+
+      <line x1="12" y1="85" x2="10" y2="85" stroke="#C4A737" strokeWidth="1.5" />
+      <line x1="12" y1="92" x2="10" y2="92" stroke="#C4A737" strokeWidth="1.5" />
+      <line x1="22" y1="85" x2="24" y2="85" stroke="#C4A737" strokeWidth="1.5" />
+      <line x1="22" y1="92" x2="24" y2="92" stroke="#C4A737" strokeWidth="1.5" />
+
+      <path d="M 68 85 L 73 80 L 78 85" fill="none" stroke="#FFAA88" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
+      <line x1="73" y1="80" x2="73" y2="88" stroke="#FFAA88" strokeWidth="4" strokeLinecap="round" />
+      <ellipse cx="73" cy="90" rx="3" ry="4" fill="#FFAA88" />
+      <ellipse cx="73" cy="90" rx="2.5" ry="3.5" fill="#FF9966" />
     </g>
   </svg>
 );
