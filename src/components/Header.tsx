@@ -15,10 +15,10 @@ const Header = () => {
   return (
     <header className="fixed top-0 left-0 right-0 bg-background/95 backdrop-blur-sm z-50 border-b border-border">
       <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 lg:h-20">
+        <div className="flex items-center justify-between h-20 lg:h-24">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <img src={logo} alt="VeeduWay" className="h-10 lg:h-14 w-auto" />
+            <img src={logo} alt="VeeduWay" className="h-16 lg:h-20 w-auto" />
           </div>
 
           {/* Desktop Navigation */}
