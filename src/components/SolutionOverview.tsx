@@ -41,7 +41,7 @@ const SolutionOverview = () => {
           {stages.map((stage) => (
             <div
               key={stage.name}
-              className="flex flex-col items-center gap-1 flex-shrink-0"
+              className="flex flex-col items-center flex-shrink-0"
             >
               <div className="w-56 h-56 md:w-64 md:h-64 lg:w-72 lg:h-72 flex items-center justify-center">
                 <img
@@ -50,7 +50,7 @@ const SolutionOverview = () => {
                   className="w-full h-full object-contain"
                 />
               </div>
-              <span className="text-sm md:text-base font-medium text-foreground">
+              <span className="text-sm md:text-base font-medium text-foreground -mt-2">
                 {stage.name}
               </span>
             </div>
