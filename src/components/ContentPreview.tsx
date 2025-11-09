@@ -26,7 +26,7 @@ const ContentPreview = () => {
   ];
 
   return (
-    <section className="bg-white">
+    <section className="bg-[#F5F1E8]">
       <div className="max-w-7xl mx-auto px-6 py-16 md:py-24">
         <div className="text-center mb-16">
           <p className="text-sm uppercase tracking-wide text-gray-500 mb-3">

@@ -20,7 +20,7 @@ const ChallengeCards = () => {
   ];
 
   return (
-    <section className="bg-amber-50">
+    <section className="bg-white">
       <div className="max-w-6xl mx-auto px-6 py-16 md:py-24">
         <div className="text-center mb-12 md:mb-16">
           <p className="text-sm uppercase tracking-wide text-gray-600 mb-4">
