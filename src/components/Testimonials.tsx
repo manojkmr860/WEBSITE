@@ -23,7 +23,7 @@ const Testimonials = () => {
   ];
 
   return (
-    <section className="bg-[#F5F1E8] py-16 md:py-24">
+    <section className="bg-[#F5F1E8] pt-0 pb-16 md:pb-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">
