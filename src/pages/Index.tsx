@@ -3,6 +3,7 @@ import Hero from "@/components/Hero";
 import SolutionOverview from "@/components/SolutionOverview";
 import ChallengeCards from "@/components/ChallengeCards";
 import ContentPreview from "@/components/ContentPreview";
+import Testimonials from "@/components/Testimonials";
 
 const Index = () => {
   return (
@@ -12,6 +13,7 @@ const Index = () => {
       <SolutionOverview />
       <ChallengeCards />
       <ContentPreview />
+      <Testimonials />
     </div>
   );
 };
