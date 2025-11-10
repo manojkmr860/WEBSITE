@@ -1,6 +1,7 @@
-import { useState } from 'react';
-import { FileCheck, ClipboardCheck, Calculator, Users, ShieldCheck, BadgeCheck, ArrowRight, X } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { FileCheck, ClipboardCheck, Calculator, Users, ShieldCheck, BadgeCheck, ArrowRight, X, Loader2, CheckCircle2 } from 'lucide-react';
 import { Dialog, DialogContent } from '@/components/ui/dialog';
+import { supabase } from '@/lib/supabase';
 
 interface Challenge {
   id: string;
@@ -13,6 +14,10 @@ interface Challenge {
 const ChallengeCards = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedChallenge, setSelectedChallenge] = useState<Challenge | null>(null);
+  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formData, setFormData] = useState({ name: '', email: '', phone: '' });
+  const [errors, setErrors] = useState<{ name?: string; email?: string; phone?: string }>({});
 
   const challenges: Challenge[] = [
     {
@@ -62,6 +67,86 @@ const ChallengeCards = () => {
   const handleCardClick = (challenge: Challenge) => {
     setSelectedChallenge(challenge);
     setIsModalOpen(true);
+    setShowSuccessMessage(false);
+    setFormData({ name: '', email: '', phone: '' });
+    setErrors({});
+  };
+
+  const validateForm = () => {
+    const newErrors: { name?: string; email?: string; phone?: string } = {};
+
+    if (!formData.name || formData.name.trim().length < 2) {
+      newErrors.name = 'Please enter your full name';
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!formData.email || !emailRegex.test(formData.email)) {
+      newErrors.email = 'Please enter a valid email address';
+    }
+
+    const phoneRegex = /^\d{10}$/;
+    if (!formData.phone || !phoneRegex.test(formData.phone)) {
+      newErrors.phone = 'Please enter a valid 10-digit phone number';
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (!validateForm()) {
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      const submissionData = {
+        name: formData.name.trim(),
+        email: formData.email.trim(),
+        phone: formData.phone.trim(),
+        challenge_id: selectedChallenge?.id || '',
+        challenge_name: selectedChallenge?.name || '',
+      };
+
+      console.log('Form submitted:', submissionData);
+
+      const { error } = await supabase
+        .from('contact_submissions')
+        .insert([submissionData]);
+
+      if (error) {
+        console.error('Error saving submission:', error);
+        alert('Something went wrong. Please try again.');
+        return;
+      }
+
+      setShowSuccessMessage(true);
+
+      setTimeout(() => {
+        setIsModalOpen(false);
+        setTimeout(() => {
+          setShowSuccessMessage(false);
+          setFormData({ name: '', email: '', phone: '' });
+        }, 300);
+      }, 5000);
+    } catch (error) {
+      console.error('Submission error:', error);
+      alert('Something went wrong. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setTimeout(() => {
+      setShowSuccessMessage(false);
+      setFormData({ name: '', email: '', phone: '' });
+      setErrors({});
+    }, 300);
   };
 
   return (
@@ -108,24 +193,131 @@ const ChallengeCards = () => {
         </div>
       </section>
 
-      <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
+      <Dialog open={isModalOpen} onOpenChange={closeModal}>
         <DialogContent className="sm:max-w-md">
           <button
-            onClick={() => setIsModalOpen(false)}
-            className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground"
+            onClick={closeModal}
+            className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none"
           >
             <X className="h-4 w-4" />
             <span className="sr-only">Close</span>
           </button>
 
-          <div className="py-6">
-            <h3 className="text-2xl font-bold mb-4">
-              You selected: {selectedChallenge?.name}
-            </h3>
-            <p className="text-gray-600">
-              We're building a detailed questionnaire for this challenge. Coming soon!
-            </p>
-          </div>
+          {!showSuccessMessage ? (
+            <div className="py-6">
+              <h3 className="font-serif text-2xl md:text-3xl font-bold mb-2">
+                Get Your Free Construction Guideline
+              </h3>
+              <p className="text-gray-600 text-sm md:text-base mb-6">
+                Download our comprehensive 7-step roadmap for building your home in Tamil Nadu
+              </p>
+
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <div>
+                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+                    Full Name*
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    value={formData.name}
+                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    onBlur={validateForm}
+                    placeholder="Enter your name"
+                    className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition ${
+                      errors.name ? 'border-red-500' : 'border-gray-300'
+                    }`}
+                  />
+                  {errors.name && (
+                    <p className="text-red-500 text-sm mt-1">{errors.name}</p>
+                  )}
+                </div>
+
+                <div>
+                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                    Email Address*
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    value={formData.email}
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    onBlur={validateForm}
+                    placeholder="your@email.com"
+                    className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition ${
+                      errors.email ? 'border-red-500' : 'border-gray-300'
+                    }`}
+                  />
+                  {errors.email && (
+                    <p className="text-red-500 text-sm mt-1">{errors.email}</p>
+                  )}
+                </div>
+
+                <div>
+                  <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
+                    Phone Number*
+                  </label>
+                  <input
+                    type="tel"
+                    id="phone"
+                    value={formData.phone}
+                    onChange={(e) => {
+                      const value = e.target.value.replace(/\D/g, '').slice(0, 10);
+                      setFormData({ ...formData, phone: value });
+                    }}
+                    onBlur={validateForm}
+                    placeholder="10-digit mobile number"
+                    className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition ${
+                      errors.phone ? 'border-red-500' : 'border-gray-300'
+                    }`}
+                  />
+                  {errors.phone && (
+                    <p className="text-red-500 text-sm mt-1">{errors.phone}</p>
+                  )}
+                </div>
+
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full bg-[#0074D9] hover:bg-blue-600 text-white font-semibold py-3 rounded-lg transition flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  {isSubmitting ? (
+                    <>
+                      <Loader2 className="animate-spin" size={20} />
+                      Submitting...
+                    </>
+                  ) : (
+                    'Get Your Free Guideline'
+                  )}
+                </button>
+
+                <p className="text-xs text-gray-500 text-center mt-3">
+                  🔒 We respect your privacy. No spam, ever.
+                </p>
+              </form>
+            </div>
+          ) : (
+            <div className="py-8 text-center">
+              <div className="mb-4 flex justify-center">
+                <CheckCircle2 className="text-green-500" size={64} />
+              </div>
+              <h3 className="text-2xl font-bold mb-2">Success!</h3>
+              <h4 className="text-xl font-semibold mb-4">Check Your Email</h4>
+              <p className="text-gray-600 mb-2">
+                We've sent your free guideline to
+              </p>
+              <p className="font-semibold text-[#0074D9] mb-6">{formData.email}</p>
+              <p className="text-sm text-gray-500 mb-6">
+                📧 Didn't receive it? Check spam folder or contact us.
+              </p>
+              <button
+                onClick={closeModal}
+                className="bg-gray-100 hover:bg-gray-200 text-gray-800 font-semibold py-2 px-6 rounded-lg transition"
+              >
+                Close
+              </button>
+            </div>
+          )}
         </DialogContent>
       </Dialog>
     </>
