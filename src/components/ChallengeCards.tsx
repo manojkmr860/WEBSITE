@@ -18,6 +18,7 @@ const ChallengeCards = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({ name: '', email: '', phone: '' });
   const [errors, setErrors] = useState<{ name?: string; email?: string; phone?: string }>({});
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   const challenges: Challenge[] = [
     {
@@ -70,6 +71,7 @@ const ChallengeCards = () => {
     setShowSuccessMessage(false);
     setFormData({ name: '', email: '', phone: '' });
     setErrors({});
+    setSubmitError(null);
   };
 
   const validateForm = () => {
@@ -95,6 +97,7 @@ const ChallengeCards = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setSubmitError(null);
 
     if (!validateForm()) {
       return;
@@ -111,16 +114,65 @@ const ChallengeCards = () => {
         challenge_name: selectedChallenge?.name || '',
       };
 
-      console.log('Form submitted:', submissionData);
-
-      const { error } = await supabase
+      const { error: dbError } = await supabase
         .from('contact_submissions')
         .insert([submissionData]);
 
-      if (error) {
-        console.error('Error saving submission:', error);
-        alert('Something went wrong. Please try again.');
-        return;
+      if (dbError) {
+        console.error('Error saving submission to database:', dbError);
+      }
+
+      const web3FormsPayload = {
+        access_key: 'bc0256e5-2b39-4ce9-840b-b87eb29a99b5',
+        name: formData.name.trim(),
+        email: formData.email.trim(),
+        phone: formData.phone.trim(),
+        challenge: selectedChallenge?.name || 'Not specified',
+        subject: 'New VeeduWay Guideline Download Request',
+        from_name: 'VeeduWay',
+        replyto: formData.email.trim(),
+        message: `Hi ${formData.name.trim()},
+
+Thank you for requesting our comprehensive Home Construction Guideline for Tamil Nadu!
+
+📥 DOWNLOAD YOUR GUIDELINE HERE:
+https://drive.google.com/uc?export=download&id=1rfUZWEGZyFXMgxD74NatntGSQGIZC6UG
+
+WHAT'S INSIDE:
+✓ Land verification & legal checklist
+✓ Complete permit application process
+✓ Budget planning templates
+✓ Contractor selection guide
+✓ Quality control measures
+✓ Occupancy certificate requirements
+✓ Post-construction maintenance tips
+
+We've designed this guideline specifically for first-time homeowners in Tamil Nadu to navigate the construction process with confidence.
+
+HAVE QUESTIONS?
+Reply to this email anytime - we're here to help!
+
+Best regards,
+The VeeduWay Team
+
+---
+Build your home without the stress, scams, or confusion.`
+      };
+
+      console.log('Submitting to Web3Forms:', web3FormsPayload);
+
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(web3FormsPayload),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok || !result.success) {
+        throw new Error(result.message || 'Email submission failed');
       }
 
       setShowSuccessMessage(true);
@@ -134,7 +186,7 @@ const ChallengeCards = () => {
       }, 5000);
     } catch (error) {
       console.error('Submission error:', error);
-      alert('Something went wrong. Please try again.');
+      setSubmitError('Failed to submit your request. Please try again or contact us directly.');
     } finally {
       setIsSubmitting(false);
     }
@@ -146,6 +198,7 @@ const ChallengeCards = () => {
       setShowSuccessMessage(false);
       setFormData({ name: '', email: '', phone: '' });
       setErrors({});
+      setSubmitError(null);
     }, 300);
   };
 
@@ -275,6 +328,12 @@ const ChallengeCards = () => {
                     <p className="text-red-500 text-sm mt-1">{errors.phone}</p>
                   )}
                 </div>
+
+                {submitError && (
+                  <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg text-sm">
+                    {submitError}
+                  </div>
+                )}
 
                 <button
                   type="submit"
