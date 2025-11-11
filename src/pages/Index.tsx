@@ -4,7 +4,7 @@ import SolutionOverview from "@/components/SolutionOverview";
 import ChallengeCards from "@/components/ChallengeCards";
 import ContentPreview from "@/components/ContentPreview";
 import Testimonials from "@/components/Testimonials";
-import BlogSection from "@/components/BlogSection";
+import FinalCTASection from "@/components/FinalCTASection";
 
 const Index = () => {
   return (
@@ -15,7 +15,7 @@ const Index = () => {
       <ChallengeCards />
       <ContentPreview />
       <Testimonials />
-      <BlogSection />
+      <FinalCTASection />
     </div>
   );
 };
