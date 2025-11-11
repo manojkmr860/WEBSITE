@@ -5,7 +5,7 @@ import heroImage from "@/assets/hero-illustration.png";
 const Hero = () => {
   const { open } = useProblemModal();
   return (
-    <section className="pt-24 md:pt-32 pb-8 md:pb-8 bg-veeduway-base">
+    <section id="top" className="pt-24 md:pt-32 pb-8 md:pb-8 bg-veeduway-base">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <div className="grid md:grid-cols-[60%_40%] gap-8 md:gap-12 items-center animate-fade-in">
           <div className="space-y-6 text-center md:text-left">

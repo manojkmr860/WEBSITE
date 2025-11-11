@@ -26,7 +26,7 @@ const Testimonials = () => {
   ];
 
   return (
-    <section className="relative bg-veeduway-alt pt-0 pb-16 md:pb-32 overflow-hidden">
+    <section id="testimonials" className="relative bg-veeduway-alt pt-0 pb-16 md:pb-32 overflow-hidden">
       <div className="absolute inset-0 opacity-20">
         <div className="absolute top-20 left-10 w-32 h-32 bg-blue-200 rounded-full blur-3xl"></div>
         <div className="absolute bottom-20 right-10 w-40 h-40 bg-blue-300 rounded-full blur-3xl"></div>
