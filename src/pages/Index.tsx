@@ -5,6 +5,7 @@ import ChallengeCards from "@/components/ChallengeCards";
 import ContentPreview from "@/components/ContentPreview";
 import Testimonials from "@/components/Testimonials";
 import FinalCTASection from "@/components/FinalCTASection";
+import Footer from "@/components/Footer";
 
 const Index = () => {
   return (
@@ -16,6 +17,7 @@ const Index = () => {
       <ContentPreview />
       <Testimonials />
       <FinalCTASection />
+      <Footer />
     </div>
   );
 };

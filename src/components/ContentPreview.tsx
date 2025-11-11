@@ -26,7 +26,7 @@ const ContentPreview = () => {
   ];
 
   return (
-    <section className="bg-veeduway-alt">
+    <section id="content-preview" className="bg-veeduway-alt">
       <div className="max-w-7xl mx-auto px-6 py-16 md:py-24">
         <div className="text-center mb-16">
           <p className="text-sm uppercase tracking-wide text-veeduway-muted mb-3">

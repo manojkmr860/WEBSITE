@@ -26,7 +26,7 @@ const SolutionOverview = () => {
   ];
 
   return (
-    <section className="py-16 md:py-24 bg-veeduway-alt">
+    <section id="solution" className="py-16 md:py-24 bg-veeduway-alt">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center mb-16">
           <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl text-veeduway-text mb-6">

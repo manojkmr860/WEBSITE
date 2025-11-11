@@ -62,7 +62,7 @@ const ChallengeCards = () => {
   };
 
   return (
-    <section className="bg-veeduway-base">
+    <section id="problems" className="bg-veeduway-base">
       <div className="max-w-6xl mx-auto px-6 py-16 md:py-24">
         <div className="text-center mb-12">
           <p className="text-sm uppercase tracking-wide text-veeduway-muted mb-4">
