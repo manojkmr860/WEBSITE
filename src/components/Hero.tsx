@@ -1,7 +1,9 @@
 import { Button } from "@/components/ui/button";
+import { useProblemModal } from "@/contexts/ProblemModalProvider";
 import heroImage from "@/assets/hero-illustration.png";
 
 const Hero = () => {
+  const { open } = useProblemModal();
   return (
     <section className="pt-24 md:pt-32 pb-8 md:pb-8 bg-veeduway-base">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
@@ -19,6 +21,7 @@ const Hero = () => {
             <div className="space-y-4">
               <Button
                 size="lg"
+                onClick={() => open()}
                 className="text-lg px-8 py-6 font-semibold w-full md:w-auto min-h-[48px] bg-[#0074D9] hover:bg-[#005BB5] text-white"
               >
                 Get Your Free Guideline

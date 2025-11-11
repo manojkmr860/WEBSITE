@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useProblemModal } from "@/contexts/ProblemModalProvider";
 import logo from "@/assets/veeduway-logo.png";
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { open } = useProblemModal();
 
   const navLinks = [
     { name: "Features", href: "#features" },
@@ -36,7 +38,11 @@ const Header = () => {
 
           {/* CTA Button - Desktop */}
           <div className="hidden md:block">
-            <Button size="lg" className="font-semibold bg-[#0074D9] hover:bg-[#005BB5] text-white">
+            <Button
+              size="lg"
+              onClick={() => open()}
+              className="font-semibold bg-[#0074D9] hover:bg-[#005BB5] text-white"
+            >
               Get Your Free Guideline
             </Button>
           </div>
@@ -65,7 +71,14 @@ const Header = () => {
                   {link.name}
                 </a>
               ))}
-              <Button size="lg" className="font-semibold w-full bg-[#0074D9] hover:bg-[#005BB5] text-white">
+              <Button
+                size="lg"
+                onClick={() => {
+                  open();
+                  setMobileMenuOpen(false);
+                }}
+                className="font-semibold w-full bg-[#0074D9] hover:bg-[#005BB5] text-white"
+              >
                 Get Your Free Guideline
               </Button>
             </div>
