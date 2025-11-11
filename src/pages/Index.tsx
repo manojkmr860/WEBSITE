@@ -16,6 +16,7 @@ const Index = () => {
       <ChallengeCards />
       <ContentPreview />
       <Testimonials />
+      <div className="h-4 bg-gradient-to-b from-[#F0F4FA] to-[#0074D9]" />
       <FinalCTASection />
       <Footer />
     </div>

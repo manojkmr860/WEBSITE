@@ -4,7 +4,7 @@ const FinalCTASection = () => {
   const { open } = useProblemModal();
 
   return (
-    <section className="bg-gradient-to-b from-veeduway-accent to-veeduway-accentHover text-white py-20 md:py-28 relative overflow-hidden">
+    <section className="bg-gradient-to-b from-[#0074D9] to-[#005BB5] text-white py-20 md:py-28 relative overflow-hidden">
       <div
         className="absolute inset-0 opacity-30"
         style={{
@@ -25,7 +25,7 @@ const FinalCTASection = () => {
             <button
               onClick={() => open()}
               aria-label="Download the free 10-step Home Construction Guideline"
-              className="mt-8 inline-flex items-center justify-center bg-white text-veeduway-accent font-semibold rounded-full px-8 py-4 hover:bg-slate-100 hover:scale-105 transition-all duration-300 shadow-lg focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-veeduway-accent"
+              className="mt-8 inline-flex items-center justify-center bg-white text-[#0074D9] font-semibold rounded-full px-8 py-4 hover:bg-slate-100 hover:scale-105 transition-all duration-300 shadow-lg focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#0074D9]"
             >
               Get My Free Guideline
             </button>
@@ -35,33 +35,33 @@ const FinalCTASection = () => {
             <div className="relative w-64 md:w-80 mx-auto">
               <div className="bg-white rounded-xl shadow-2xl p-6 transform hover:scale-105 transition-transform duration-300">
                 <div className="aspect-[3/4] bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg flex items-center justify-center relative overflow-hidden">
-                  <div className="absolute top-0 left-0 right-0 h-12 bg-veeduway-accent flex items-center justify-center">
+                  <div className="absolute top-0 left-0 right-0 h-12 bg-[#0074D9] flex items-center justify-center">
                     <div className="text-white font-bold text-sm">VeeduWay</div>
                   </div>
 
                   <div className="text-center px-6 mt-8">
-                    <div className="text-veeduway-accent font-serif font-bold text-xl mb-2">
+                    <div className="text-[#0074D9] font-serif font-bold text-xl mb-2">
                       10-Step Home Construction Guideline
                     </div>
                     <div className="text-xs text-gray-600 space-y-1 mt-4">
                       <div className="flex items-center gap-2">
-                        <div className="w-4 h-4 rounded-full bg-veeduway-accent flex items-center justify-center text-white text-[8px] font-bold">✓</div>
+                        <div className="w-4 h-4 rounded-full bg-[#0074D9] flex items-center justify-center text-white text-[8px] font-bold">✓</div>
                         <span>Land Verification</span>
                       </div>
                       <div className="flex items-center gap-2">
-                        <div className="w-4 h-4 rounded-full bg-veeduway-accent flex items-center justify-center text-white text-[8px] font-bold">✓</div>
+                        <div className="w-4 h-4 rounded-full bg-[#0074D9] flex items-center justify-center text-white text-[8px] font-bold">✓</div>
                         <span>Permits & Approvals</span>
                       </div>
                       <div className="flex items-center gap-2">
-                        <div className="w-4 h-4 rounded-full bg-veeduway-accent flex items-center justify-center text-white text-[8px] font-bold">✓</div>
+                        <div className="w-4 h-4 rounded-full bg-[#0074D9] flex items-center justify-center text-white text-[8px] font-bold">✓</div>
                         <span>Budget Planning</span>
                       </div>
                       <div className="flex items-center gap-2">
-                        <div className="w-4 h-4 rounded-full bg-veeduway-accent flex items-center justify-center text-white text-[8px] font-bold">✓</div>
+                        <div className="w-4 h-4 rounded-full bg-[#0074D9] flex items-center justify-center text-white text-[8px] font-bold">✓</div>
                         <span>Quality Control</span>
                       </div>
                       <div className="flex items-center gap-2">
-                        <div className="w-4 h-4 rounded-full bg-veeduway-accent flex items-center justify-center text-white text-[8px] font-bold">✓</div>
+                        <div className="w-4 h-4 rounded-full bg-[#0074D9] flex items-center justify-center text-white text-[8px] font-bold">✓</div>
                         <span>& Much More...</span>
                       </div>
                     </div>
@@ -72,9 +72,9 @@ const FinalCTASection = () => {
                 </div>
 
                 <div className="mt-4 flex gap-2">
-                  <div className="flex-1 h-1 bg-veeduway-accent rounded" />
-                  <div className="flex-1 h-1 bg-veeduway-accent/30 rounded" />
-                  <div className="flex-1 h-1 bg-veeduway-accent/30 rounded" />
+                  <div className="flex-1 h-1 bg-[#0074D9] rounded" />
+                  <div className="flex-1 h-1 bg-[#0074D9]/30 rounded" />
+                  <div className="flex-1 h-1 bg-[#0074D9]/30 rounded" />
                 </div>
               </div>
             </div>
