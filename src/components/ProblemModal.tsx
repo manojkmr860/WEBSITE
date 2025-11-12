@@ -286,8 +286,9 @@ const ProblemModal = ({ isOpen, selectedProblem, onClose }: ProblemModalProps) =
             </p>
 
             <a
-              href="https://drive.google.com/uc?export=download&id=1rfUZWEGZyFXMgxD74NatntGSQGIZC6UG"
-              download
+              href="https://drive.google.com/uc?export=download&id=1Ds3uW5y78FLDtbAd5x225V1K-dbSOLPw"
+              target="_blank"
+              rel="noopener"
               onClick={handleDownloadClick}
               className="inline-block w-full bg-veeduway-accent hover:bg-veeduway-accentHover text-white font-semibold py-3 px-6 rounded-lg transition focus:outline-none focus:ring-2 focus:ring-veeduway-accent focus:ring-offset-2"
             >
