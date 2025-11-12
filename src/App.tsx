@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ProblemModalProvider } from "@/contexts/ProblemModalProvider";
 import ProblemModal from "@/components/ProblemModal";
+import Clarity from "@/components/Clarity";
 import Index from "./pages/Index";
 import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
@@ -16,6 +17,7 @@ const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <ProblemModalProvider modalComponent={ProblemModal}>
+        <Clarity />
         <Toaster />
         <Sonner />
         <BrowserRouter>

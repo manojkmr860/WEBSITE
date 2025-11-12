@@ -51,6 +51,15 @@ const Privacy = () => {
 
               <section>
                 <h2 className="text-2xl font-serif font-bold text-veeduway-text mb-4">
+                  Analytics and Session Recording
+                </h2>
+                <p className="text-veeduway-muted leading-relaxed">
+                  We use Microsoft Clarity to capture anonymous usage patterns to improve our user experience. No personal information is stored. Clarity helps us understand how users interact with our website through session replays and heatmaps, allowing us to optimize the user journey and identify areas for improvement.
+                </p>
+              </section>
+
+              <section>
+                <h2 className="text-2xl font-serif font-bold text-veeduway-text mb-4">
                   Contact Us
                 </h2>
                 <p className="text-veeduway-muted leading-relaxed">
