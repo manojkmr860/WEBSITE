@@ -8,11 +8,11 @@ declare global {
 
 const Clarity = () => {
   useEffect(() => {
-    const clarityId = import.meta.env.VITE_CLARITY_PROJECT_ID;
+    const clarityId = 'u6le5t4kw3';
     const isProduction = import.meta.env.PROD;
 
-    if (!isProduction || !clarityId || clarityId === 'YOUR_CLARITY_PROJECT_ID') {
-      console.log('[Clarity] Skipped: Not in production or ID not configured');
+    if (!isProduction) {
+      console.log('[Clarity] Skipped: Not in production');
       return;
     }
 
