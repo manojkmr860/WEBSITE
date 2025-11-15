@@ -67,7 +67,7 @@ const Hero = () => {
             aria-hidden="true"
             className="
               blueprint-overlay pointer-events-none absolute inset-0 rounded-3xl
-              bg-[url('/patterns/blueprint.svg')]
+              bg-[url('/WEBSITE/patterns/blueprint.svg')]
               bg-center bg-cover opacity-0
             "
           />

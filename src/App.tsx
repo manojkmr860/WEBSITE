@@ -20,7 +20,7 @@ const App = () => (
         <Clarity />
         <Toaster />
         <Sonner />
-        <BrowserRouter>
+        <BrowserRouter basename="/WEBSITE/">
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/privacy" element={<Privacy />} />
