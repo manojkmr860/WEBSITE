@@ -1,6 +1,3 @@
-import constructionImg from "@/assets/Whisk_c6c6d189954fe7f84b74de8f306fff1ceg.png";
-import completionImg from "@/assets/Whisk_c6c6d189954fe7f84b74de8f306fff1ceg (1).png";
-
 const SolutionOverview = () => {
   const stages = [
     {
@@ -13,7 +10,7 @@ const SolutionOverview = () => {
     },
     {
       name: "Construction",
-      image: constructionImg
+      image: "/Whisk_bafb2f77b308ac692324440ca3f19873eg.png"
     },
     {
       name: "Quality Control",
@@ -21,7 +18,7 @@ const SolutionOverview = () => {
     },
     {
       name: "Completion",
-      image: completionImg
+      image: "/Whisk_c6c6d189954fe7f84b74de8f306fff1ceg (1).png"
     },
   ];
 
