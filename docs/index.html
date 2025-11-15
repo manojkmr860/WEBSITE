@@ -20,8 +20,20 @@
     <meta name="twitter:site" content="@Lovable" />
     <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
 
-    <script type="module" crossorigin src="/assets/index-CnbzC26M.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-m1qCZFRP.css">
+    
+    <!-- SPA Routing Support for GitHub Pages -->
+    <script>
+      // Handle client-side routing for GitHub Pages
+      (function() {
+        var redirect = sessionStorage.redirect;
+        delete sessionStorage.redirect;
+        if (redirect && redirect !== location.href) {
+          history.replaceState(null, null, redirect);
+        }
+      })();
+    </script>
+    <script type="module" crossorigin src="/WEBSITE/assets/index-DRjdLLbR.js"></script>
+    <link rel="stylesheet" crossorigin href="/WEBSITE/assets/index-CE7vDC_A.css">
   </head>
 
   <body>
