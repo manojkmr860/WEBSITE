@@ -13,7 +13,7 @@ declare global {
 
 const FacebookPixel = () => {
   useEffect(() => {
-    const pixelId = '693056760173930';
+    const pixelId = '1150296790566665';
     const isProduction = import.meta.env.PROD;
 
     if (!isProduction) {
@@ -75,7 +75,7 @@ const FacebookPixel = () => {
             height="1"
             width="1"
             style={{ display: 'none' }}
-            src="https://www.facebook.com/tr?id=693056760173930&ev=PageView&noscript=1"
+            src="https://www.facebook.com/tr?id=1150296790566665&ev=PageView&noscript=1"
             alt=""
           />
         </noscript>
