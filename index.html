@@ -29,6 +29,18 @@
         })(window, document, "clarity", "script", import.meta.env.VITE_CLARITY_PROJECT_ID);
       }
     </script>
+    
+    <!-- SPA Routing Support for GitHub Pages -->
+    <script>
+      // Handle client-side routing for GitHub Pages
+      (function() {
+        var redirect = sessionStorage.redirect;
+        delete sessionStorage.redirect;
+        if (redirect && redirect !== location.href) {
+          history.replaceState(null, null, redirect);
+        }
+      })();
+    </script>
   </head>
 
   <body>
